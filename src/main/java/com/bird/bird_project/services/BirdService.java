@@ -3,17 +3,21 @@ package com.bird.bird_project.services;
 import com.bird.bird_project.dto.BirdDto;
 import com.bird.bird_project.dto.BirdListDto;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface BirdService {
 
-    BirdDto getOne(int name);
+
+    BirdDto getBirdByTypeAndTotalWeight(String type, int weight);
 
     List<BirdDto> getAllBirds();
 
-    BirdListDto birdListDto();
+    BirdListDto getAllbirdsToShop();
 
-    void addBirdInDB(BirdDto birdDto,String health);
+    void addBirdInDB(BirdDto birdDto) throws IOException;
 
-    int getPriceForKg(int price);
+    BirdDto getBirdByTypeAndTotalWeightNew(String type, int weight);
+
+    List<Bird> allTypeBird();
 }

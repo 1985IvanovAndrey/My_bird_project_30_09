@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Entity
 @Table
 public class BirdEntity {
-
     @Id
     @GeneratedValue
     private long Id;
@@ -17,9 +16,14 @@ public class BirdEntity {
     @Column
     private int pricePerUnit;
     @Column
-    private String birdHealth;
-    @Column
-    private int weight;
+    private int totalWeight;
 
+    public BirdEntity(String birdType, int pricePerUnit, int totalWeight) {
+        this.birdType = birdType;
+        this.pricePerUnit = pricePerUnit;
+        this.totalWeight = totalWeight;
+    }
 
+    public BirdEntity() {
+    }
 }

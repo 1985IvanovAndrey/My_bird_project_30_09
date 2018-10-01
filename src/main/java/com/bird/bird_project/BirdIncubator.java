@@ -16,34 +16,15 @@ public class BirdIncubator {
     private BirdRepository birdRepository;
 
     @PostConstruct
-    public  void  incubator(){
-
-//        for (int i=0; i<=2; i++){
-//            BirdEntity birdEntity = new BirdEntity();
-//            birdEntity.setBirdHealth((i+23)+"");
-//            birdEntity.setBirdType("parrot");
-//            birdEntity.setWeight(5+i);
-//            birdEntity.setPricePerUnit(25+i);
-//            birdRepository.save(birdEntity);
-//
-//        }
-//
-//        for (int i=0; i<=2; i++){
-//            BirdEntity birdEntity = new BirdEntity();
-//            birdEntity.setBirdHealth((i+30)+"");
-//            birdEntity.setBirdType("eagl");
-//            birdEntity.setWeight(10+i);
-//            birdEntity.setPricePerUnit(40+i);
-//            birdRepository.save(birdEntity);
-//            }
-//        for (int i=0; i<=2; i++){
-//            BirdEntity birdEntity = new BirdEntity();
-//            birdEntity.setBirdHealth((i+30)+"");
-//            birdEntity.setBirdType("duck");
-//            birdEntity.setWeight(10+i);
-//            birdEntity.setPricePerUnit(40+i);
-//            birdRepository.save(birdEntity);
-//        }
+    public void incubator() {
+        BirdEntity duck = new BirdEntity("duck", 8, 40);
+        birdRepository.save(duck);
+        BirdEntity chicken = new BirdEntity("chicken", 4, 80);
+        birdRepository.save(chicken);
+        BirdEntity quail = new BirdEntity("quail", 7, 60);
+        birdRepository.save(quail);
+        BirdEntity turkey = new BirdEntity("turkey", 5, 60);
+        birdRepository.save(turkey);
 
     }
 }

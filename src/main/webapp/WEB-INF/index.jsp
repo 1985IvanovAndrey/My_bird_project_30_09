@@ -19,52 +19,45 @@
 </head>
 <body>
 <div class="container-fluid">
-<c:if test="${price==0}">
-    <br>
-    <h2>Установить цену за 1 кг птицы</h2>
-    <form action="/set">
-        <div class="form group">
-            <div class="col-6">
-            </div>
-        </div>
-        <br>
-        <input class=" btn btn-outline-primary btn-sm" type="submit" value="SET PRICE">
-    </form>
-</c:if>
-<c:if test="${price>0}">
-<h4>Add Bird</h4>
-    <br>
+    <h4>Add Bird</h4>
+    <h5>Можно добавить следующие типы птиц: duck,chicken,quail,turkey</h5>
     <form action="/add">
         <div class="form group">
-            <div class="col-6">
-                <%--<label for="typeBird" class="col-form-label-sm">Type:</label>--%>
-                <%--<input type="text" class="form-control col-form-label-sm" id="typeBird" name="typeBird"--%>
-                <%--placeholder="enter type">--%>
-                <select name="typeBird">
-                    <option>duck</option>
-                    <option>eagl</option>
-                    <option>parrot</option>
-                </select>
-                    <br>
-                    <br>
-                <label for="weight" class="col-form-label-sm">Weight:</label>
-                <input type="text" class="form-control col-form-label-sm" id="weight" name="weight"
+            <div class="col-4">
+                <%--<select name="typeBird">--%>
+                <%--<option>duck</option>--%>
+                <%--<option>chicken</option>--%>
+                <%--<option>quail</option>--%>
+                <%--<option>turkey</option>--%>
+                <%--</select>--%>
+                <label for="typeBird" class="col-form-label-sm">Type:</label>
+                <input type="text" class="form-control col-form-label-sm" id="typeBird" name="typeBird"
+                       placeholder="enter type">
+                <label for="totalWeight" class="col-form-label-sm">Weight:</label>
+                <input type="text" class="form-control col-form-label-sm" id="totalWeight" name="totalWeight"
                        placeholder="enter weight">
-                <label for="health" class="col-form-label-sm">Health:</label>
-                <input type="text" class="form-control col-form-label-sm" id="health" name="health"
-                       placeholder="enter health">
+                <label for="totalPrice" class="col-form-label-sm">Price per unit:</label>
+                <input type="text" class="form-control col-form-label-sm" id="totalPrice" name="totalPrice"
+                       placeholder="enter price per unit">
             </div>
         </div>
         <br>
         <input class=" btn btn-outline-primary btn-sm" type="submit" value="Add Bird">
     </form>
+    <h4>Скидки:</h4>
+    Курица: от 20 до 40 кг = -1$, больше 40 кг = -2$
     <br>
+    Утка: от 15 до 25 кг = -1$, больше 25 кг = -2$
+    <br>
+    Индюк: от 5 до 20 кг = -1$, больше 20 кг = -2$
+    <br>
+    Перепёлка: от 18 до 30 кг = -1$, больше 40 кг = -2$
 
+    <br>
     <c:if test="${!empty birdList}">
     <h4>All Bird</h4>
     <div class="row">
         <div class="col-6">
-                <%--<c:if test="${!empty studentList}">--%>
             <div class="table-responsive-sm">
                 <table class="table table-sm table-bordered">
                     <thead>
@@ -78,8 +71,8 @@
                     <c:forEach items="${birdList}" var="bird">
                         <tr align="center">
                             <td>${bird.typeBird}</td>
-                            <td>${bird.weight}</td>
-                            <td>${bird.pricePerUnit}</td>
+                            <td>${bird.totalWeight}</td>
+                            <td>${bird.totalPrice}</td>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -89,6 +82,12 @@
         </div>
     </div>
 </div>
-</c:if>
+<form action="/getAllBirdToShop">
+    <div class="form group">
+        <div class="col-4">
+            <input class=" btn btn-outline-primary btn-sm" type="submit" value="Get all bird to shop">
+        </div>
+    </div>
+</form>
 </body>
 </html>

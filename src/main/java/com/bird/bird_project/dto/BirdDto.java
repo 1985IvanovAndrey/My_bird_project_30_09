@@ -9,17 +9,23 @@ import javax.persistence.Column;
 @Data
 public class BirdDto {
 
-    @JsonProperty("type_bird")
+    @JsonProperty
     private String typeBird;
-    @JsonIgnore
-//    @JsonProperty
-//    private long amount;
+    @JsonProperty
+    private int totalWeight;
     @JsonProperty("price_per_unit")
-    private int pricePerUnit;
-    @JsonProperty("bird_weight")
-    private int weight;
-//    @JsonIgnore
-//    @JsonProperty
-//    private String birdHealth;
+    private int totalPrice;
+    @JsonProperty
+    private int totalSum;
+    @JsonProperty
+    private int discount;
 
+    public BirdDto(String typeBird, int totalWeight, int totalPrice) {
+        this.typeBird = typeBird;
+        this.totalWeight = totalWeight;
+        this.totalPrice = totalPrice;
+    }
+
+    public BirdDto() {
+    }
 }
