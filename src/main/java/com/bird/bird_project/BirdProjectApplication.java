@@ -10,3 +10,4 @@ public class BirdProjectApplication {
         SpringApplication.run(BirdProjectApplication.class, args);
     }
 }
+ 
